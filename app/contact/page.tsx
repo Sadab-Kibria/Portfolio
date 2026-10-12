@@ -6,9 +6,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import Globe from "../components/Globe";
 import TextAnimation from "../components/TextAnimation";
 
-const FORMSUBMIT_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORMSUBMIT_ENDPOINT;
-
 type FormStatus = "idle" | "sending" | "success" | "error";
 
 export default function Contact() {
@@ -28,13 +25,7 @@ export default function Contact() {
     setErrorMessage("");
 
     try {
-      if (!FORMSUBMIT_ENDPOINT) {
-        throw new Error(
-          "Contact form is not configured. Please try again later."
-        );
-      }
-
-      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           Accept: "application/json",
