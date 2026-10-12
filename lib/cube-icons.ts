@@ -1,0 +1,73 @@
+export const cubeFaces = {
+  front: [
+    { src: "/icons/cube/frontend/react.png", title: "React" },
+    { src: "/icons/cube/frontend/css3.png", title: "CSS3" },
+    { src: "/icons/cube/frontend/typescript.png", title: "TypeScript" },
+    { src: "/icons/cube/frontend/html5.png", title: "HTML5" },
+    { src: "/icons/cube/frontend/nextjs.png", title: "Next.js" },
+    { src: "/icons/cube/frontend/shadcnui.png", title: "shadcn/ui" },
+    { src: "/icons/cube/frontend/framermotion.png", title: "Framer Motion" },
+    { src: "/icons/cube/frontend/tailwindcss.png", title: "Tailwind CSS" },
+    { src: "/icons/cube/frontend/javascript.png", title: "JavaScript" },
+  ],
+
+  back: [
+    { src: "/icons/cube/backend/socketdotio.png", title: "Socket.IO" },
+    { src: "/icons/cube/backend/nodedotjs.png", title: "Node.js" },
+    { src: "/icons/cube/backend/bun.png", title: "Bun" },
+    { src: "/icons/cube/backend/typescript.png", title: "TypeScript" },
+    { src: "/icons/cube/backend/express.png", title: "Express" },
+    { src: "/icons/cube/backend/javascript.png", title: "JavaScript" },
+    { src: "/icons/cube/backend/python.png", title: "Python" },
+    { src: "/icons/cube/backend/jsonwebtokens.png", title: "JSON Web Tokens" },
+    { src: "/icons/cube/backend/postman.png", title: "Postman" },
+  ],
+
+  right: [
+    { src: "/icons/cube/cloud/cloudflare.png", title: "Cloudflare" },
+    { src: "/icons/cube/cloud/pnpm.png", title: "pnpm" },
+    { src: "/icons/cube/cloud/git.png", title: "Git" },
+    { src: "/icons/cube/cloud/github.png", title: "GitHub" },
+    { src: "/icons/cube/cloud/docker.png", title: "Docker" },
+    { src: "/icons/cube/cloud/npm.png", title: "npm" },
+    { src: "/icons/cube/cloud/vercel.png", title: "Vercel" },
+    { src: "/icons/cube/cloud/nvm.png", title: "nvm" },
+    { src: "/icons/cube/cloud/cloudinary.png", title: "Cloudinary" },
+  ],
+
+  left: [
+    { src: "/icons/cube/database/neon.png", title: "Neon" },
+    { src: "/icons/cube/database/firebase.png", title: "Firebase" },
+    { src: "/icons/cube/database/mongodb.png", title: "MongoDB" },
+    { src: "/icons/cube/database/mysql.png", title: "MySQL" },
+    { src: "/icons/cube/database/postgresql.png", title: "PostgreSQL" },
+    { src: "/icons/cube/database/prisma.png", title: "Prisma" },
+    { src: "/icons/cube/database/redis.png", title: "Redis" },
+    { src: "/icons/cube/database/supabase.png", title: "Supabase" },
+    { src: "/icons/cube/database/drizzle.png", title: "Drizzle" },
+  ],
+
+  top: [
+    { src: "/icons/cube/languages/lua.png", title: "Lua" },
+    { src: "/icons/cube/languages/c.png", title: "C" },
+    { src: "/icons/cube/languages/typescript.png", title: "TypeScript" },
+    { src: "/icons/cube/languages/python.png", title: "Python" },
+    { src: "/icons/cube/languages/cpp.png", title: "C++" },
+    { src: "/icons/cube/languages/html5.png", title: "HTML5" },
+    { src: "/icons/cube/languages/java.png", title: "Java" },
+    { src: "/icons/cube/languages/javascript.png", title: "JavaScript" },
+    { src: "/icons/cube/languages/csharp.png", title: "C#" },
+  ],
+
+  bottom: [
+    { src: "/icons/cube/tools/unity.png", title: "Unity" },
+    { src: "/icons/cube/tools/blender.png", title: "Blender" },
+    { src: "/icons/cube/tools/figma.png", title: "Figma" },
+    { src: "/icons/cube/tools/lighthouse.png", title: "Lighthouse" },
+    { src: "/icons/cube/tools/threedotjs.png", title: "Three.js" },
+    { src: "/icons/cube/tools/githubcopilot.png", title: "GitHub Copilot" },
+    { src: "/icons/cube/tools/github.png", title: "GitHub" },
+    { src: "/icons/cube/tools/gsap.png", title: "GSAP" },
+    { src: "/icons/cube/tools/cursor.png", title: "Cursor" },
+  ],
+};
