@@ -4,7 +4,9 @@ import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { motion, useReducedMotion } from "framer-motion";
 
-const CV_PATH = "/sadab-kibria-resume.pdf";
+const CV_FILE_ID = "1hQFVP8_6C83yqM1CFK3SoTAzSt4Auixy";
+const CV_PREVIEW_URL = `https://drive.google.com/file/d/${CV_FILE_ID}/view`;
+const CV_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${CV_FILE_ID}`;
 
 const sitemapLinks = [
   { label: "Home", href: "/#home" },
@@ -20,11 +22,12 @@ const socialLinks = [
   { label: "Instagram", link: "https://www.instagram.com/sadab_kibria" },
 ];
 
-// Shared link style (same as the Sitemap / Socials links)
 const linkClass =
-  "group relative inline-flex items-center gap-2 text-sm  transition-colors duration-200";
+  "group relative inline-flex items-center gap-2 text-sm transition-colors duration-200";
+
 const bulletClass =
   "w-1.5 h-1.5 rounded-full bg-white scale-0 opacity-0 transition-all duration-200 ease-out group-hover:scale-100 group-hover:opacity-100 shrink-0";
+
 const underlineClass =
   "absolute left-0 -bottom-0.5 w-full h-[1.5px] bg-white origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100";
 
@@ -42,7 +45,6 @@ export default function Footer() {
       }}
       className="relative w-full bg-black text-white px-6 sm:px-10 md:px-16 pt-10 sm:pt-16 md:pt-20 pb-8 sm:pb-10 flex flex-col justify-between selection:bg-white selection:text-black border-t border-white/10"
     >
-      {/* ── Main Section: flex-col-reverse on small screens, flex-row on lg ── */}
       <div className="flex flex-col-reverse lg:flex-row justify-between items-stretch gap-8 sm:gap-12 lg:gap-16 pb-8 sm:pb-12">
         {/* Logo & Name Section */}
         <motion.div
@@ -56,7 +58,6 @@ export default function Footer() {
           className="flex flex-col justify-between items-center lg:items-start flex-1 min-h-0 lg:min-h-[460px] pt-4 lg:pt-0"
         >
           <div className="group flex flex-col justify-between items-center lg:items-start h-full w-full select-none text-center lg:text-left gap-4 lg:gap-0">
-            {/* Responsive Logo */}
             <div className="relative w-full max-w-[240px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[460px] h-36 sm:h-52 md:h-64 lg:h-80 mx-auto lg:mx-0">
               <Link href="/">
                 <Image
@@ -69,7 +70,6 @@ export default function Footer() {
               </Link>
             </div>
 
-            {/* SADAB KIBRIA */}
             <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-white leading-none">
               Sadab Kibria
             </span>
@@ -88,7 +88,7 @@ export default function Footer() {
           }}
           className="flex flex-col justify-between gap-8 lg:gap-12 lg:w-auto shrink-0"
         >
-          {/* Top CTA + Download CV */}
+          {/* Top CTA + CV Links */}
           <div className="flex flex-wrap items-center justify-center lg:justify-end gap-x-6 sm:gap-x-8 gap-y-3 uppercase">
             <Link href="/#contact" className={linkClass}>
               <span className={bulletClass} />
@@ -98,9 +98,23 @@ export default function Footer() {
               </span>
             </Link>
 
+            {/* Preview CV in Google Drive */}
             <a
-              href={CV_PATH}
-              download="sadab-kibria-resume.pdf"
+              href={CV_PREVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClass}
+            >
+              <span className={bulletClass} />
+              <span className="relative">
+                Preview CV
+                <span className={underlineClass} />
+              </span>
+            </a>
+
+            {/* Download CV directly from Google Drive */}
+            <a
+              href={CV_DOWNLOAD_URL}
               className={linkClass}
             >
               <span className={bulletClass} />
@@ -111,14 +125,15 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Links Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-12 lg:gap-16 text-center sm:text-left uppercase">
-            {/* 01/ SITEMAP */}
-            <div className="flex flex-col gap-2 sm:gap-3">
-              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-mono tracking-wider uppercase ">
+          {/* Sitemap & Socials */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-12 lg:gap-16 text-left uppercase">
+            {/* Sitemap */}
+            <div className="flex flex-col items-start gap-2 sm:gap-3">
+              <div className="flex items-center gap-1.5 text-xs font-mono tracking-wider uppercase">
                 <span>Sitemap</span>
               </div>
-              <ul className="flex flex-col gap-1.5 sm:gap-2 mt-1">
+
+              <ul className="flex flex-col items-start gap-1.5 sm:gap-2 mt-1">
                 {sitemapLinks.map((item, index) => (
                   <motion.li
                     key={item.label}
@@ -130,13 +145,10 @@ export default function Footer() {
                       delay: shouldReduceMotion ? 0 : 0.2 + index * 0.05,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="flex justify-center sm:justify-start"
+                    className="flex justify-start"
                   >
                     <Link href={item.href} className={linkClass}>
-                      {/* Hover bullet */}
                       <span className={bulletClass} />
-
-                      {/* Label + Underline */}
                       <span className="relative">
                         {item.label}
                         <span className={underlineClass} />
@@ -147,12 +159,13 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* 02/ SOCIALS */}
-            <div className="flex flex-col gap-2 sm:gap-3">
-              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-mono tracking-wider uppercase ">
+            {/* Socials */}
+            <div className="flex flex-col items-start gap-2 sm:gap-3">
+              <div className="flex items-center gap-1.5 text-xs font-mono tracking-wider uppercase">
                 <span>Socials</span>
               </div>
-              <ul className="flex flex-col gap-1.5 sm:gap-2 mt-1">
+
+              <ul className="flex flex-col items-start gap-1.5 sm:gap-2 mt-1">
                 {socialLinks.map((item, index) => (
                   <motion.li
                     key={item.label}
@@ -164,7 +177,7 @@ export default function Footer() {
                       delay: shouldReduceMotion ? 0 : 0.25 + index * 0.05,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="flex justify-center sm:justify-start"
+                    className="flex justify-start"
                   >
                     <a
                       href={item.link}
@@ -172,10 +185,7 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       className={linkClass}
                     >
-                      {/* Hover bullet */}
                       <span className={bulletClass} />
-
-                      {/* Label + Underline */}
                       <span className="relative">
                         {item.label}
                         <span className={underlineClass} />
@@ -189,7 +199,7 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      {/* ── Bottom Metadata Bar ── */}
+      {/* Bottom Metadata Bar */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
