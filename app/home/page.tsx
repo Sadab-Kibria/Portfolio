@@ -35,7 +35,7 @@ export default function Home() {
 
       <section
         ref={heroRef}
-        className="relative w-full h-svh py-8 md:py-10 flex flex-col justify-between overflow-hidden text-white select-none"
+        className="relative w-full min-h-svh py-8 md:py-10 flex flex-col overflow-hidden text-white select-none"
         id="home"
       >
         {/* Right Indicator */}
@@ -54,8 +54,10 @@ export default function Home() {
           </span>
         </motion.div>
 
-        {/* Center Main Content */}
-        <div className="absolute inset-0 flex items-center pointer-events-none">
+        {/* Center Main Content
+            In normal flow (flex-1) so the section grows to fit the title
+            plus the bottom bar instead of letting them overlap. */}
+        <div className="relative flex flex-1 items-center py-6 pointer-events-none">
           <div className="w-full">
             <motion.h1
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
@@ -96,8 +98,9 @@ export default function Home() {
 
         {/* Bottom bar
             Mobile: resume links -> Let's Talk -> socials (stacked, centered)
-            md+: resume links + socials in the left column, Let's Talk in the center */}
-        <div className="absolute inset-x-5 bottom-6 z-10 grid grid-cols-1 justify-items-center gap-5 md:inset-x-14 md:bottom-10 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto] md:items-end md:justify-items-start md:gap-x-6 md:gap-y-2">
+            md+: resume links + socials in the left column, Let's Talk in the center
+            Now in normal flow (not absolute), so it can never sit behind the title. */}
+        <div className="relative z-10 mx-5 mb-6 md:mx-14 md:mb-10 grid grid-cols-1 justify-items-center gap-5 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto] md:items-end md:justify-items-start md:gap-x-6 md:gap-y-2">
           {/* Resume links: above Let's Talk on mobile, left column (top) on md+ */}
           <motion.div
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
